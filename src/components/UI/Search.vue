@@ -1,16 +1,18 @@
 <script setup lang="ts">
+const searchValue = defineModel('search');
+const emit = defineEmits(['search']);
 
-const emit = defineEmits(['click']);
-
-const clickButton = () => emit('click');
+const clickButton = () => emit('search');
 </script>
 
 <template>
     <div class="bg-[#332934] flex justify-between gap-4">
         <input
+            v-model="searchValue"
             class="w-full p-3 outline-none"
             type="text"
-            placeholder="Search your lists">
+            placeholder="Search your lists"
+        >
         <button
             class="
                 flex justify-center items-center
